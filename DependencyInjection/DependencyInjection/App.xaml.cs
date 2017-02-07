@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using DependencyInjection.Views;
 using Xamarin.Forms;
 
 namespace DependencyInjection
@@ -13,7 +9,7 @@ namespace DependencyInjection
         {
             InitializeComponent();
 
-            MainPage = new DependencyInjection.MainPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

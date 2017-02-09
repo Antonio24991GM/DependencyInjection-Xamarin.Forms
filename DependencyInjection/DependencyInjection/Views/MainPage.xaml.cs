@@ -9,8 +9,6 @@ namespace DependencyInjection.Views
 
         public MainPage()
         {
-            vm = new MainViewModel();
-            BindingContext = vm;
             InitializeComponent();
         }
     }

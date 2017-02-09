@@ -9,6 +9,8 @@ namespace DependencyInjection.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        private readonly IEmployeeService _employeeService;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -24,12 +26,12 @@ namespace DependencyInjection.ViewModels
             set { _employees = value; }
         }
 
-        public MainViewModel()
+        public MainViewModel(IEmployeeService employeeService)
         {
+            _employeeService = employeeService;
+            var employeesList = _employeeService.GetAllEmployees();
+            
             Employees = new ObservableCollection<Employee>();
-            var employeeService = new EmployeeService();
-            var employeesList = employeeService.GetAllEmployees();
-
             foreach (var employee in employeesList)
             {
                 Employees.Add(employee);
